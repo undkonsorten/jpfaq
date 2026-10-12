@@ -2,6 +2,7 @@
 
 namespace Jp\Jpfaq\Service;
 
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use TYPO3\CMS\Core\Mail\MailerInterface;
 use TYPO3\CMS\Core\Mail\MailMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -32,8 +33,12 @@ class SendMailService
         $mail->setSubject($subject);
         $mail->html('<html><head></head><body>' . $body . ' </body></html>');
 
-        GeneralUtility::makeInstance(MailerInterface::class)->send($mail);
+        try {
+            GeneralUtility::makeInstance(MailerInterface::class)->send($mail);
+        } catch (TransportExceptionInterface) {
+            return false;
+        }
 
-        return $mail->isSent();
+        return true;
     }
 }
