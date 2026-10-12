@@ -1,0 +1,13 @@
+page = PAGE
+page {
+  10 = CONTENT
+  10 {
+    table = tt_content
+    select.orderBy = sorting
+    renderObj = EXTBASEPLUGIN
+    renderObj {
+      extensionName = Jpfaq
+      pluginName = Faq
+    }
+  }
+}

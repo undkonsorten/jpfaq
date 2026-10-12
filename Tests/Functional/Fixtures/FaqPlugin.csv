@@ -1,0 +1,20 @@
+"tt_content"
+,"uid","pid","sorting","CType","header","pi_flexform"
+,1,1,256,"jpfaq_faq","FAQ","<?xml version=""1.0"" encoding=""utf-8"" standalone=""yes"" ?>
+<T3FlexForms>
+    <data>
+        <sheet index=""main"">
+            <language index=""lDEF"">
+                <field index=""settings.flexform.showSearch""><value index=""vDEF"">1</value></field>
+                <field index=""settings.flexform.showNumberOfResults""><value index=""vDEF"">0</value></field>
+                <field index=""settings.flexform.showQuestionCommentForm""><value index=""vDEF"">0</value></field>
+                <field index=""settings.question.comment.email.enable""><value index=""vDEF"">0</value></field>
+                <field index=""settings.flexform.showCategoriesCommentForm""><value index=""vDEF"">0</value></field>
+                <field index=""settings.category.comment.email.enable""><value index=""vDEF"">0</value></field>
+                <field index=""settings.excludeAlreadyDisplayedQuestions""><value index=""vDEF"">1</value></field>
+                <field index=""settings.flexform.selectCategory""><value index=""vDEF""></value></field>
+                <field index=""settings.startingpoint""><value index=""vDEF"">2</value></field>
+            </language>
+        </sheet>
+    </data>
+</T3FlexForms>"
