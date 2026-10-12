@@ -39,7 +39,11 @@
   },
   "extra": {
     "typo3/cms": {
-      "extension-key": "jpfaq"
+      "extension-key": "jpfaq",
+      "version": "14.0.0",
+      "Package": {
+        "providesPackages": {}
+      }
     }
   }
 }
