@@ -89,6 +89,14 @@ final class QuestionRepositoryTest extends FunctionalTestCase
         self::assertSame([1], $this->findUids(categories: [1], startingPoint: '2'));
     }
 
+    #[Test]
+    public function categoriesStartingPointAndExclusionMustAllMatch(): void
+    {
+        $GLOBALS['EXT']['jpfaq']['alreadyDisplayed'] = [1 => 1];
+
+        self::assertSame([], $this->findUids(categories: [1], excludeAlreadyDisplayed: true, startingPoint: '2'));
+    }
+
     /**
      * @param list<int> $categories
      * @return list<int>
