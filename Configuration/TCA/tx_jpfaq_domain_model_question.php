@@ -17,7 +17,6 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'question,answer,additional_content_answer,categories,',
         'typeicon_classes' => [
             'default' => 'tx_jpfaq_domain_model_question',
         ],
@@ -26,7 +25,7 @@ return [
         ],
     ],
     'types' => [
-        '1' => ['showitem' => 'question,answer,additional_content_answer,categories,helpful,nothelpful,questioncomment,--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,sys_language_uid,l10n_parent,l10n_diffsource,--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,hidden,starttime,endtime'],
+        '1' => ['showitem' => 'question,answer,additional_content_answer,categories,helpful,nothelpful,questioncomment,--div--;core.form.tabs:language,sys_language_uid,l10n_parent,l10n_diffsource,--div--;core.form.tabs:access,hidden,starttime,endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -78,6 +77,7 @@ return [
                 'behaviour' => [
                     'allowLanguageSynchronization' => true,
                 ],
+                'searchable' => false,
             ],
         ],
         'endtime' => [
@@ -92,6 +92,7 @@ return [
                 'behaviour' => [
                     'allowLanguageSynchronization' => true,
                 ],
+                'searchable' => false,
             ],
         ],
         'question' => [
@@ -179,6 +180,7 @@ return [
                 'size' => 6,
                 'eval' => 'num',
                 'default' => 0,
+                'searchable' => false,
             ],
 
         ],
@@ -190,6 +192,7 @@ return [
                 'size' => 6,
                 'eval' => 'num',
                 'default' => 0,
+                'searchable' => false,
             ],
         ],
         'questioncomment' => [

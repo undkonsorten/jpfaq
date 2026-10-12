@@ -1,5 +1,7 @@
 <?php
 
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 defined('TYPO3') or die();
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('jpfaq', 'Configuration/TypoScript', 'jpFAQ');
+ExtensionManagementUtility::addStaticFile('jpfaq', 'Configuration/TypoScript', 'jpFAQ');

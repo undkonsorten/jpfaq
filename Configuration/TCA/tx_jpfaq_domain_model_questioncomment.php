@@ -18,13 +18,12 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'name,email,comment,finfo,question',
         'typeicon_classes' => [
             'default' => 'tx_jpfaq_domain_model_questioncomment',
         ],
     ],
     'types' => [
-        '1' => ['showitem' => 'name,email,comment,question,ip,--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,sys_language_uid,l10n_parent,l10n_diffsource,--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,hidden,starttime,endtime'],
+        '1' => ['showitem' => 'name,email,comment,question,ip,--div--;core.form.tabs:language,sys_language_uid,l10n_parent,l10n_diffsource,--div--;core.form.tabs:access,hidden,starttime,endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -76,6 +75,7 @@ return [
                 'behaviour' => [
                     'allowLanguageSynchronization' => true,
                 ],
+                'searchable' => false,
             ],
         ],
         'endtime' => [
@@ -90,6 +90,7 @@ return [
                 'behaviour' => [
                     'allowLanguageSynchronization' => true,
                 ],
+                'searchable' => false,
             ],
         ],
         'name' => [
@@ -147,6 +148,7 @@ return [
             'config' => [
                 'type' => 'datetime',
                 'default' => 0,
+                'searchable' => false,
             ],
         ],
         'ip' => [
@@ -156,6 +158,7 @@ return [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim',
+                'searchable' => false,
             ],
         ],
     ],

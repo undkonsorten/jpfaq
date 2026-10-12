@@ -2,6 +2,7 @@
 
 namespace Jp\Jpfaq\Service;
 
+use TYPO3\CMS\Core\Mail\MailerInterface;
 use TYPO3\CMS\Core\Mail\MailMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -31,7 +32,7 @@ class SendMailService
         $mail->setSubject($subject);
         $mail->html('<html><head></head><body>' . $body . ' </body></html>');
 
-        $mail->send();
+        GeneralUtility::makeInstance(MailerInterface::class)->send($mail);
 
         return $mail->isSent();
     }

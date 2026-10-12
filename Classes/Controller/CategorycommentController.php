@@ -15,7 +15,6 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Http\ForwardResponse;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
 
 class CategorycommentController extends ActionController
 {
@@ -110,7 +109,7 @@ class CategorycommentController extends ActionController
     ): ResponseInterface {
         // If honeypot field 'finfo' is filled by spambot do not add new comment
         if ($newCategorycomment->getFinfo()) {
-            $this->redirect('list', 'Question');
+            return $this->redirect('list', 'Question');
         }
 
         $currentUid = $this->request->getAttribute('currentContentObject')->data['uid'];

@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
+use Jp\Jpfaq\Domain\Model\TtContent;
+
 return [
-    \Jp\Jpfaq\Domain\Model\TtContent::class => [
+    TtContent::class => [
         'tableName' => 'tt_content',
         'properties' => [
             'contentType' => [
