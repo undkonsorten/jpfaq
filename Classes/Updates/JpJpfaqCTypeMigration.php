@@ -12,30 +12,23 @@ final class JpJpfaqCTypeMigration extends AbstractListTypeToCTypeUpdate
 {
     public function getTitle(): string
     {
-        return 'Migrate "Jp Jpfaq" plugins to content elements.';
+        return 'Migrate jpFAQ plugins to content elements.';
     }
 
     public function getDescription(): string
     {
-        return 'The "Jp Jpfaq" plugins are now registered as content element. Update migrates existing records and backend user permissions.';
+        return 'The jpFAQ plugins are now registered as content element. Update migrates existing records and backend user permissions.';
     }
 
     /**
-     * This must return an array containing the "list_type" to "CType" mapping
-     *
-     *  Example:
-     *
-     *  [
-     *      'pi_plugin1' => 'pi_plugin1',
-     *      'pi_plugin2' => 'new_content_element',
-     *  ]
+     * Installations coming from TYPO3 12 still have list_type plugins
      *
      * @return array<string, string>
      */
     protected function getListTypeToCTypeMapping(): array
     {
         return [
-            // TODO: Add this mapping yourself!
+            'jpfaq_faq' => 'jpfaq_faq',
         ];
     }
 }
