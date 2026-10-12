@@ -27,11 +27,32 @@
     "issues": "https://forge.typo3.org/projects/extension-jpfaq/"
   },
   "require": {
-    "typo3/cms-core": "^14.3"
+    "php": "^8.2",
+    "typo3/cms-core": "^14.3",
+    "typo3/cms-extbase": "^14.3",
+    "typo3/cms-fluid": "^14.3",
+    "typo3/cms-frontend": "^14.3"
+  },
+  "require-dev": {
+    "ergebnis/composer-normalize": "^2.45",
+    "friendsofphp/php-cs-fixer": "^3.64",
+    "php-parallel-lint/php-parallel-lint": "^1.4",
+    "phpstan/extension-installer": "^1.4",
+    "phpstan/phpstan": "^2.1",
+    "phpunit/phpunit": "^11.5 || ^12.0",
+    "saschaegerer/phpstan-typo3": "^3.1",
+    "ssch/typo3-rector": "^3.16",
+    "typo3/coding-standards": "^0.9",
+    "typo3/testing-framework": "^9.7"
   },
   "autoload": {
     "psr-4": {
       "Jp\\Jpfaq\\": "Classes/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Jp\\Jpfaq\\Tests\\": "Tests/"
     }
   },
   "replace": {
@@ -43,7 +64,47 @@
       "version": "14.0.0",
       "Package": {
         "providesPackages": {}
-      }
+      },
+      "web-dir": ".Build/public"
     }
+  },
+  "config": {
+    "allow-plugins": {
+      "ergebnis/composer-normalize": true,
+      "phpstan/extension-installer": true,
+      "typo3/class-alias-loader": true,
+      "typo3/cms-composer-installers": true
+    },
+    "bin-dir": ".Build/bin",
+    "lock": false,
+    "sort-packages": true,
+    "vendor-dir": ".Build/vendor"
+  },
+  "scripts": {
+    "check:composer:normalize": "@composer normalize --no-check-lock --dry-run",
+    "check:php": [
+      "@check:php:lint",
+      "@check:php:cs-fixer"
+    ],
+    "check:php:cs-fixer": "php-cs-fixer fix --config ./Build/php-cs-fixer/config.php -v --dry-run --diff",
+    "check:php:lint": "parallel-lint *.php Build Classes Configuration Tests",
+    "check:php:rector": "rector process --config ./Build/rector/rector.php --dry-run",
+    "check:static": [
+      "@check:composer:normalize",
+      "@check:php:lint",
+      "@check:php:cs-fixer",
+      "@check:php:rector"
+    ],
+    "check:tests:unit": "phpunit -c Build/phpunit/UnitTests.xml",
+    "fix": [
+      "@fix:composer:normalize",
+      "@fix:php"
+    ],
+    "fix:composer:normalize": "@composer normalize --no-check-lock",
+    "fix:php": [
+      "@fix:php:cs-fixer"
+    ],
+    "fix:php:cs-fixer": "php-cs-fixer fix --config ./Build/php-cs-fixer/config.php",
+    "fix:php:rector": "rector process --config ./Build/rector/rector.php"
   }
 }

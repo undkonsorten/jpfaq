@@ -1,0 +1,21 @@
+"pages"
+,"uid","pid","title","doktype","slug"
+,1,0,"FAQ","1","/"
+,2,1,"Storage A","254","/storage-a"
+,3,1,"Storage B","254","/storage-b"
+"tx_jpfaq_domain_model_category"
+,"uid","pid","category","description"
+,1,2,"Installation",""
+,2,2,"Configuration",""
+"tx_jpfaq_domain_model_question"
+,"uid","pid","sorting","question","answer","categories","hidden"
+,1,2,256,"How do I install it?","<p>With composer.</p>",1,0
+,2,2,512,"How do I configure it?","<p>In the site settings.</p>",1,0
+,3,3,256,"Where is the installation guide?","<p>In the documentation.</p>",1,0
+,4,2,768,"Is it free?","<p>Yes.</p>",0,0
+,5,2,1024,"Hidden question","<p>Hidden.</p>",0,1
+"tx_jpfaq_question_category_mm"
+,"uid_local","uid_foreign","sorting","sorting_foreign"
+,1,1,1,1
+,2,2,1,1
+,3,1,1,2
