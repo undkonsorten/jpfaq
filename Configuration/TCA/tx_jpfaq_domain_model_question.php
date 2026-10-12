@@ -176,9 +176,8 @@ return [
             'exclude' => 1,
             'label' => 'LLL:EXT:jpfaq/Resources/Private/Language/locallang_db.xlf:tx_jpfaq_domain_model_question.helpful',
             'config' => [
-                'type' => 'input',
+                'type' => 'number',
                 'size' => 6,
-                'eval' => 'num',
                 'default' => 0,
                 'searchable' => false,
             ],
@@ -188,9 +187,8 @@ return [
             'exclude' => 1,
             'label' => 'LLL:EXT:jpfaq/Resources/Private/Language/locallang_db.xlf:tx_jpfaq_domain_model_question.nothelpful',
             'config' => [
-                'type' => 'input',
+                'type' => 'number',
                 'size' => 6,
-                'eval' => 'num',
                 'default' => 0,
                 'searchable' => false,
             ],

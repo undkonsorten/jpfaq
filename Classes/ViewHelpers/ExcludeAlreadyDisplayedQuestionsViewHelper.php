@@ -11,7 +11,6 @@ use Jp\Jpfaq\Domain\Model\Question;
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
  */
-use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
@@ -37,12 +36,10 @@ class ExcludeAlreadyDisplayedQuestionsViewHelper extends AbstractViewHelper
         $this->registerArgument('question', Question::class, 'question item', true);
     }
 
-    public static function renderStatic(
-        array $arguments,
-        \Closure $renderChildrenClosure,
-        RenderingContextInterface $renderingContext
-    ) {
-        $question = $arguments['question'];
+    public function render(): string
+    {
+        /** @var Question $question */
+        $question = $this->arguments['question'];
         $uid = $question->getUid();
         if (empty($GLOBALS['EXT']['jpfaq']['alreadyDisplayed'])) {
             $GLOBALS['EXT']['jpfaq']['alreadyDisplayed'] = [];
@@ -54,5 +51,7 @@ class ExcludeAlreadyDisplayedQuestionsViewHelper extends AbstractViewHelper
         if ($originalUid > 0) {
             $GLOBALS['EXT']['jpfaq']['alreadyDisplayed'][$originalUid] = $originalUid;
         }
+
+        return '';
     }
 }
